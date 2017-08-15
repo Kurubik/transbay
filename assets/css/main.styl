@@ -1,0 +1,522 @@
+@import '../../lib/clear.styl'
+@import '../../lib/bem.styl'
+@import '../../lib/mq.styl'
+@import '../../lib/normalize.styl'
+
+
+*
+  -webkit-tap-highlight-color transparent
+  -moz-osx-font-smoothing grayscale
+  -webkit-font-smoothing antialiased
+  &:focus
+    outline none
+
+html, body
+  position relative
+  display block
+  margin 0
+  padding 0
+  font-family 'Roboto', sans-serif
+  width 100%
+  height auto
+  min-width 1200px
+  font-size 0
+  min-height 100%
+
+header
+  position relative
+  width 100%
+  height 50px
+  background-color #3e404d
+  display block
+
+.container
+  position relative
+  display block
+  width 100%
+  height 100%
+  background-color #ffffff
+
+.wrapper
+  position relative
+  display block
+  width 100%
+  max-width 1180px
+  height 100%
+  margin 0 auto
+  +modifier(flex-b-c)
+    display flex
+    justify-content space-between
+    align-items center
+
+.section
+  position relative
+  display block
+  width 100%
+  height auto
+  background-color #ffffff
+  +modifier(top)
+    height 550px
+    background-image url('../images/top-bg.png')
+    background-repeat no-repeat
+    background-position center right
+  +modifier(vid)
+    height 630px
+    background-color #f4f8fd
+  +modifier(all-types)
+    height 475px
+  +modifier(flags)
+    padding 0 0 70px 0
+    background-color #f4f8fd
+  +modifier(new-level)
+    padding 0 0 83px 0
+  +modifier(work)
+    padding 0 0 83px 0
+    background-color #f4f8fd
+  +modifier(price)
+    padding 0 0 57px 0
+  +modifier(open)
+    padding 0 0 57px 0
+
+  +element(title)
+    position relative
+    display block
+    width 100%
+    color #2f2f30
+    font-family 'Roboto', sans-serif
+    font-size 24px
+    font-weight 700
+    text-transform uppercase
+    text-align center
+    padding-top 30px
+
+    &:after
+      content ""
+      position relative
+      width 107px
+      height 3px
+      background-color #3a65bb
+      display block
+      margin 10px auto
+
+  +element(text)
+    position relative
+    display block
+    width 100%
+    color #2f2f30
+    font-family 'Roboto', sans-serif
+    font-size 20px
+    font-weight 300
+    text-align center
+    +modifier(inner)
+      padding 18px 0
+      text-align left
+    +modifier(inner-center)
+      padding 45px 0 15px 0
+    +modifier(p35)
+      padding 35px 0 0 0
+
+
+.header
+  +element(logo)
+    position relative
+    color #ffffff
+    font-family 'Roboto', sans-serif
+    font-size 18px
+    font-weight 700
+    text-transform uppercase
+    text-decoration none
+    display block
+
+  +element(menu)
+    position relative
+    display flex
+    justify-content space-between
+    align-items center
+
+  +element(menu-item)
+    position relative
+    display block
+    color #ffffff
+    font-family 'Roboto', sans-serif
+    font-size 14px
+    font-weight 300
+    line-height 29px
+    text-decoration none
+    cursor pointer
+
+    & + &
+      margin-left 25px
+
+.top-b
+  position relative
+  display flex
+  justify-content flex-start
+  align-items flex-start
+  flex-wrap wrap
+  width 100%
+  height auto
+  padding 55px 0 0 0
+
+  +element(title)
+    position relative
+    display block
+    width 595px
+    padding 0 0 18px 0
+    border-bottom 2px solid #3e404d
+
+  +element(phones)
+    position relative
+    width 100%
+    display flex
+    justify-content center
+    align-items center
+    padding-left 88px
+    background-image url('../images/phone-ico.png')
+    background-repeat no-repeat
+    background-position left center
+    flex-wrap wrap
+    margin-bottom  24px
+
+.title-text
+  position relative
+  display block
+  width 100%
+  font-family 'Roboto', sans-serif
+  text-transform uppercase
+  color #191511
+  font-size 36px
+  font-weight 700
+  +modifier(big)
+    color #191511
+    font-size 50px
+    font-weight 700
+    line-height 49px
+  +modifier(c-blue)
+    color #3a65bb
+    font-size 43px
+    font-weight 700
+    line-height 47px
+  +modifier(light)
+    color #191511
+    font-size 36px
+    font-weight 300
+
+.phone-item
+  position relative
+  display block
+  width 100%
+  color #2f2f30
+  font-family 'Roboto', sans-serif
+  font-size 20px
+  line-height 29px
+  font-weight 300
+  & strong
+    font-weight 700
+
+.button
+  position relative
+  display flex
+  justify-content center
+  align-content center
+  background-color #3a65bb
+  border-radius 5px
+  text-decoration none
+  cursor pointer
+  width 317px
+  height 60px
+  +modifier(big)
+    width 461px
+    height 77px
+    flex-wrap wrap
+    & span
+      line-height 25px
+  +modifier(center)
+    margin 0 auto
+  +modifier(center-mid)
+    width 380px
+    margin 0 auto
+
+.button-text
+  position relative
+  display block
+  font-family 'Roboto', sans-serif
+  color #e7e6e2
+  font-size 16px
+  font-weight 300
+  line-height 60px
+  +modifier(bold)
+    font-size 18px
+    font-weight 700
+    color #ffffff
+    text-transform uppercase
+  +modifier(upper)
+    text-transform uppercase
+
+.vid-b
+  position relative
+
+  +element(list)
+    position relative
+    display flex
+    justify-content space-between
+    align-items center
+    flex-wrap wrap
+
+  +element(list-item)
+    position relative
+    display flex
+    justify-content center
+    align-content center
+    flex-wrap wrap
+    width 33%
+    padding-top 45px
+    &.for-four
+      width 25%
+
+.vid-icon
+  position relative
+
+.all-types-icon
+  position relative
+  display block
+  width 184px
+  height 184px
+  opacity 0.9
+  background-size cover
+  background-repeat no-repeat
+  background-position center
+  &.khalifa-img
+    background-image url('../images/khalifa-img.png')
+
+  &.visa-img
+    background-image url('../images/visa-img.png')
+
+  &.servide-img
+    background-image url('../images/service-img.png')
+
+  &.box-img
+    background-image url('../images/box-img.png')
+
+.vid-text
+  position relative
+  display block
+  width 100%
+  color #2f2f30
+  font-family 'Roboto', sans-serif
+  font-size 16px
+  font-weight 400
+  padding-top 10px
+  text-align center
+
+  .for-four &
+    padding 10px 50px 0 50px
+
+.all-types
+  position relative
+
+.flags
+  position relative
+
+  +element(list)
+    position relative
+    display flex
+    justify-content space-between
+    align-items center
+    flex-wrap wrap
+
+  +element(list-item)
+    position relative
+    display block
+    flex-wrap wrap
+    margin-top 39px
+    width 380px
+    height 450px
+    box-shadow 0 1px 1px rgba(25, 12, 2, 0.15)
+    background-color #ffffff
+
+.flag-item
+  +element(header)
+    height 70px
+    width 100%
+    background-color rgba(62, 64, 77, 0.21)
+    box-sizing border-box
+    padding 14px 13px
+    position relative
+    display flex
+    justify-content flex-start
+    align-items center
+
+  +element(body)
+    position relative
+    box-sizing border-box
+    padding 25px 24px
+
+  +element(top-text)
+    position relative
+    display flex
+    justify-content space-between
+    align-content center
+    width 100%
+
+    & + &
+      padding-top 15px
+
+  +element(list)
+    position relative
+    display block
+    list-style none
+    margin 21px 0 0 0
+    padding 23px 0 0 0
+    border-top 1px solid #d8d9db
+
+    & li
+      position relative
+      display block
+      color #2f2f30
+      font-family 'Roboto', sans-serif
+      font-size 14px
+      font-weight 300
+      padding 0 0 0 31px
+
+      &:before
+        content ""
+        position absolute
+        background-color #d8d9db
+        width 9px
+        height 9px
+        top 4px
+        left 4px
+
+    & li + li
+        margin-top 17px
+
+
+.flag-top-text
+  position relative
+  display block
+  color #2f2f30
+  font-family 'Roboto', sans-serif
+  font-size 14px
+  font-weight 300
+  +modifier(strong)
+    color #2f2f30
+    font-size 16px
+    font-weight 700
+    line-height 16px
+    text-transform uppercase
+
+.flag-title
+  position relative
+  display block
+  color #2f2f30
+  font-family 'Roboto', sans-serif
+  font-size 24px
+  font-weight 700
+  margin-left 19px
+
+.new-level
+  position relative
+
+  +element(container)
+    position relative
+    display flex
+    justify-content center
+    align-content flex-start
+    width 100%
+    z-index 5
+    +modifier(p35)
+      padding-top 35px
+    +modifier(p60)
+      padding-top 55px
+    +modifier(p10)
+      padding-top 10px
+
+  +element(bl0ck)
+    position relative
+    display block
+    width 385px
+    height auto
+    text-align right
+    & + &
+      margin-left 212px
+      text-align left
+
+.new-level-title
+  position relative
+  display block
+  height 34px
+  color #2f2f30
+  font-family 'Roboto', sans-serif
+  font-size 20px
+  font-weight 500
+  width 100%
+  background-color #d8d9db
+  line-height 34px
+  box-sizing border-box
+  padding 0 15px
+  +modifier(centr)
+    text-align center
+
+.new-level-ok-text
+  color #2f2f30
+  font-family 'Roboto', sans-serif
+  font-size 16px
+  font-weight 300
+  +modifier(right)
+    &:before
+      content ""
+      position absolute
+      display block
+      top 0
+      left -130px
+      width 111px
+      height 42px
+      background-image url('../images/ok-line.png')
+  +modifier(left)
+    &:before
+      content ""
+      position absolute
+      display block
+      top 0
+      right -114px
+      width 88px
+      height 18px
+      background-image url('../images/ball-line.png')
+  +modifier(right-ok)
+    padding-left 66px
+    text-align left
+    &:before
+      content ""
+      position absolute
+      display block
+      top 0
+      left 2px
+      width 42px
+      height 42px
+      background-image url('../images/ok-ico.png')
+  +modifier(left-ok)
+    padding-left 61px
+    text-align left
+    &:before
+      content ""
+      position absolute
+      display block
+      top 0
+      left -4px
+      width 42px
+      height 42px
+      background-image url('../images/ok-blue-ico.png')
+
+.new-level-palka
+  position absolute
+  width 2px
+  height 450px
+  border-left 2px dashed #d8d9db
+  display block
+  z-index 1
+  top 240px
+  left 0
+  right 0
+  margin 0 auto
+

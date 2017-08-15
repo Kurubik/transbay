@@ -1,0 +1,14 @@
+//media query
+
+mq($break)
+  if $break == "small"
+    @media (min-width: $brkpoint--sm) and (max-width: $brkpoint--md)
+      {block}
+  else if $break == "medium"
+    @media (min-width: $brkpoint--md + 1) and (max-width: $brkpoint--lg)
+      {block}
+  else if $break == "large"
+    @media (min-width: $brkpoint--lg + 1)
+      {block}
+  else
+    error("Incorrect break value for MQ mixin: " + $break)
