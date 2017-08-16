@@ -26,9 +26,43 @@ html, body
 header
   position relative
   width 100%
-  height 50px
+  height auto
+  padding 30px 0
   background-color #3e404d
   display block
+
+footer
+  position relative
+  width 100%
+  padding 60px 0 45px 0
+  background-color #ffffff
+  display block
+
+input, textarea
+  &::-webkit-input-placeholder
+    color #252525
+  &:-moz-placeholder
+    color #252525
+  &::-moz-placeholder
+    color #252525
+  &:-ms-input-placeholder
+    color #252525
+  &:-webkit-autofill
+    -webkit-box-shadow 0 0 0px 1000px white inset
+    -webkit-text-fill-color #252525 !important
+  &:focus
+    &::-webkit-input-placeholder
+      transition color 0.3s ease
+      color transparent !important
+    &:-moz-placeholder
+      transition color 0.3s ease
+      color transparent !important
+    &::-moz-placeholder
+      transition color 0.3s ease
+      color transparent !important
+    &:-ms-input-placeholder
+      transition color 0.3s ease
+      color transparent !important
 
 .container
   position relative
@@ -74,9 +108,26 @@ header
     padding 0 0 83px 0
     background-color #f4f8fd
   +modifier(price)
-    padding 0 0 57px 0
+    padding 0 0 33px 0
   +modifier(open)
-    padding 0 0 57px 0
+    padding 0 0 33px 0
+    background-color #f4f8fd
+  +modifier(form)
+    padding 0 0 60px 0
+    background-image url('../images/form-bg-v2.png')
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+    &:before
+      content ''
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+      display none
+      background-color #3e404d
+      opacity 0.8
 
   +element(title)
     position relative
@@ -98,6 +149,12 @@ header
       background-color #3a65bb
       display block
       margin 10px auto
+
+    +modifier(c-white)
+      color #ffffff
+      padding-bottom 30px
+      &:after
+        display none
 
   +element(text)
     position relative
@@ -225,6 +282,8 @@ header
   cursor pointer
   width 317px
   height 60px
+  border none
+  box-shadow none
   +modifier(big)
     width 461px
     height 77px
@@ -235,7 +294,13 @@ header
     margin 0 auto
   +modifier(center-mid)
     width 380px
-    margin 0 auto
+    margin 115px auto 0 auto
+  +modifier(center-mid-v2)
+    width 380px
+    margin 60px auto 0 auto
+  +modifier(form)
+    width 380px
+    margin 25px auto 0 auto
 
 .button-text
   position relative
@@ -262,6 +327,8 @@ header
     justify-content space-between
     align-items center
     flex-wrap wrap
+    +modifier(center)
+      justify-content center
 
   +element(list-item)
     position relative
@@ -271,8 +338,15 @@ header
     flex-wrap wrap
     width 33%
     padding-top 45px
+    +modifier(lilbit)
+      width 10%
+
     &.for-four
       width 25%
+
+    &.for-four-v2
+      width 25%
+
 
 .vid-icon
   position relative
@@ -298,6 +372,40 @@ header
   &.box-img
     background-image url('../images/box-img.png')
 
+  &.circle-k
+    opacity 1
+    width 54px
+    height 54px
+    background-color #d8d9db
+    color #ffffff
+    font-family 'Roboto', sans-serif
+    font-size 30px
+    font-weight 700
+    line-height 54px
+    text-align center
+    border-radius 50%
+
+  &.passport-ico
+    opacity 1
+    background-size contain
+    width 93px
+    height 93px
+    background-image url('../images/passport-ico.png')
+
+  &.plus-ico
+    opacity 1
+    background-size contain
+    width 47px
+    height 47px
+    background-image url('../images/plus-ico.png')
+
+  &.check-ico
+    opacity 1
+    background-size contain
+    width 110px
+    height 96px
+    background-image url('../images/check-ico.png')
+
 .vid-text
   position relative
   display block
@@ -308,9 +416,14 @@ header
   font-weight 400
   padding-top 10px
   text-align center
+  +modifier(plus)
+    padding 40px 0 0 0
 
   .for-four &
     padding 10px 50px 0 50px
+
+  .for-four-v2 &
+    padding 10px 35px 0 35px
 
 .all-types
   position relative
@@ -383,6 +496,7 @@ header
         content ""
         position absolute
         background-color #d8d9db
+        border-radius 50%
         width 9px
         height 9px
         top 4px
@@ -438,6 +552,11 @@ header
     width 385px
     height auto
     text-align right
+    +modifier(big)
+      width 100%
+      max-width 1026px
+      margin 15px 0 0 0
+
     & + &
       margin-left 212px
       text-align left
@@ -459,6 +578,7 @@ header
     text-align center
 
 .new-level-ok-text
+  position relative
   color #2f2f30
   font-family 'Roboto', sans-serif
   font-size 16px
@@ -469,7 +589,7 @@ header
       position absolute
       display block
       top 0
-      left -130px
+      left -128px
       width 111px
       height 42px
       background-image url('../images/ok-line.png')
@@ -486,6 +606,10 @@ header
   +modifier(right-ok)
     padding-left 66px
     text-align left
+
+    & + &
+      margin-top 45px
+
     &:before
       content ""
       position absolute
@@ -498,6 +622,10 @@ header
   +modifier(left-ok)
     padding-left 61px
     text-align left
+
+    & + &
+      margin-top 45px
+
     &:before
       content ""
       position absolute
@@ -519,4 +647,291 @@ header
   left 0
   right 0
   margin 0 auto
+  +modifier(triangle)
+    height 410px
+    top 300px
+    &:after
+      content ""
+      position absolute
+      left -8px
+      bottom -18px
+      display block
+      width 14px
+      height 17px
+      background-image url('../images/triangle.png')
 
+.under-button-text
+  position relative
+  display block
+  text-align center
+  width 100%
+  color #2f2f30
+  font-family 'Roboto', sans-serif
+  font-size 14px
+  line-height 25px
+  text-transform uppercase
+  font-weight 300
+  padding-top 3px
+
+.form-box
+  position relative
+  width 100%
+  max-width 764px
+  height auto
+  border 2px solid rgba(255, 255, 255, 0.81)
+  margin 0 auto
+
+  +element(title)
+    position relative
+    display block
+    width 100%
+    color #ffffff
+    font-family 'Roboto', sans-serif
+    font-size 20px
+    font-weight 300
+    text-align center
+    padding 20px
+
+  +element(text)
+    padding 15px 0
+    position relative
+    display block
+    text-align center
+    width 100%
+    color #ffffff
+    font-family 'Roboto', sans-serif
+    font-size 12px
+    font-weight 400
+    line-height 15px
+    & a
+      font-family 'Roboto', sans-serif
+      font-size 12px
+      color #ffffff
+      text-decoration underline
+
+  +element(form)
+    position relative
+    width 100%
+    height 100%
+    display block
+    box-sizing border-box
+    padding 12px 143px
+
+    & form
+      position relative
+      display flex
+      justify-content space-between
+      align-content flex-start
+      width 100%
+      flex-wrap wrap
+
+  +element(input-container)
+    position relative
+    width 100%
+    display block
+    background-color #ffffff
+    height 51px
+    box-sizing border-box
+    +modifier(x2)
+      width calc(50% - 7px)
+    +modifier(text)
+      height 95px
+
+    &.padding-left
+      padding-left 75px
+
+    & + &
+      margin-top 15px
+
+    & input, & textarea
+      position relative
+      display block
+      width 100%
+      height 100%
+      border none
+      box-shadow none
+      border-radius 0
+      color #252525
+      font-family 'Roboto', sans-serif
+      font-size 16px
+      font-weight 400
+      line-height 25px
+      box-sizing border-box
+      padding 0 18px
+
+    & textarea
+      padding 13px 18px
+      resize none
+
+.footer-block
+  position relative
+  display flex
+  width 100%
+  margin 0 auto
+  padding 15px 39px
+  max-width 975px
+  background-color #3a3f46
+  justify-content space-between
+  align-content flex-start
+
+  +element(item)
+    position relative
+    display block
+    width 260px
+    color #ffffff
+    font-family 'Roboto', sans-serif
+    font-size 14px
+    font-weight 400
+    line-height 15px
+    & a
+      color #ffffff
+      font-family 'Roboto', sans-serif
+      &.icons
+        display block
+        margin 0 15px 0 0
+
+.footer-icons
+  position relative
+  display flex
+  justify-content flex-start
+  align-items flex-start
+  padding-top 10px
+
+.footer-b-text
+  position relative
+  display block
+  color #ffffff
+  font-family 'Roboto', sans-serif
+  font-size 15px
+  line-height 24px
+  font-weight 400
+  margin 0
+  padding 0
+
+.footer-phones
+  padding-left 42px
+  background-image url('../images/phone-ico.png')
+  background-repeat no-repeat
+  background-position 0 6px
+  background-size 16px 16px
+  position relative
+  color #ffffff
+  font-family 'Roboto', sans-serif
+  font-size 14px
+  font-weight 400
+  line-height 24px
+  & a
+    color #ffffff
+    font-family 'Roboto', sans-serif
+    text-decoration none
+    display block
+    width 100%
+
+.footer-emails
+  padding-left 42px
+  background-image url('../images/email-ico.png')
+  background-repeat no-repeat
+  background-size 21px 13px
+  background-position 0 6px
+  margin-top 10px
+  position relative
+  color #ffffff
+  font-family 'Roboto', sans-serif
+  font-size 14px
+  font-weight 400
+  line-height 24px
+  text-decoration underline
+  & a
+    color #ffffff
+    font-family 'Roboto', sans-serif
+    display block
+    width 100%
+
+.footer-c
+  position relative
+  text-align center
+  display block
+  width 100%
+  color #8b959d
+  font-family 'Roboto', sans-serif
+  font-size 14px
+  font-weight 400
+  line-height 15px
+  padding 30px 0 0 0
+
+.flag-select
+  position absolute
+  top 0
+  left 0
+  display block
+  width 70px
+  height 100%
+  background-repeat no-repeat
+  background-position center right
+  background-image url('../images/drop-down-ico.png')
+  cursor pointer
+  & ul
+    position relative
+    display flex
+    justify-content center
+    align-items center
+    flex-wrap wrap
+    width 100%
+    height 100%
+    padding 0
+    margin 0
+    background-color transparent
+    overflow hidden
+    transition height 0.3s ease, background-color 0.3s ease, width 0.3s ease
+    will-change height, background-color, width
+    &.open
+      overflow auto
+      height 150px
+      width 80px
+      background-color #ffffff
+      z-index 2
+  & li
+    position relative
+    width 100%
+    height 50px
+    margin 0
+    padding 0
+    display flex
+    justify-content flex-start
+    align-items center
+  & img
+    position relative
+    display block
+    width 31px
+    height 21px
+    object-fit cover
+    left 15px
+
+.set-flag-img
+  position absolute
+  top 0
+  left 0
+  width 100%
+  height 100%
+  display flex
+  align-items center
+  opacity 1
+  background-color #ffffff
+  background-repeat no-repeat
+  background-position center right
+  background-image url('../images/drop-down-ico.png')
+  z-index 2
+  &.hide
+    opacity 0
+    pointer-events none
+
+.flag-country-tel
+  position absolute
+  display block
+  top 16px
+  left 82px
+  color #252525
+  font-family 'Roboto', sans-serif
+  font-size 16px
+  font-weight 400
+  z-index 2
