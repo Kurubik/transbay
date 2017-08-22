@@ -58,6 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        var positionFix = -50;
+
         /*
          * globals
          */
@@ -334,19 +336,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     this,
                     scrollableParent,
                     scrollableParent.scrollLeft + clientRects.left - parentRects.left,
-                    scrollableParent.scrollTop + clientRects.top - parentRects.top
+                    scrollableParent.scrollTop + clientRects.top - parentRects.top + positionFix
                 );
                 // reveal parent in viewport
                 w.scrollBy({
                     left: parentRects.left,
-                    top: parentRects.top,
+                    top: parentRects.top + positionFix,
                     behavior: 'smooth'
                 });
             } else {
                 // reveal element in viewport
                 w.scrollBy({
                     left: clientRects.left,
-                    top: clientRects.top,
+                    top: clientRects.top + positionFix,
                     behavior: 'smooth'
                 });
             }
