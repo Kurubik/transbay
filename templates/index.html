@@ -9,7 +9,6 @@
     <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
     <meta name="format-detection" content="telephone=no">
     <link href="https://fonts.googleapis.com/css?family=Italianno|Roboto:100,300,400,500,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/fonts.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <title>Transbay</title>
 </head>
@@ -18,11 +17,11 @@
     <div class="wrapper wrapper--flex-b-c">
         <a href="#" class="header__logo">transbay.eu</a>
         <div class="header__menu">
-            <a href="#" class="header__menu-item">Юрисдикции</a>
-            <a href="#" class="header__menu-item">О нас</a>
-            <a href="#" class="header__menu-item">Стоимость и Гарантии</a>
-            <a href="#" class="header__menu-item">Документы</a>
-            <a href="#" class="header__menu-item">Контакты</a>
+            <span class="header__menu-item" data-go-button="0">Юрисдикции</span>
+            <span class="header__menu-item" data-go-button="1">О нас</span>
+            <span class="header__menu-item" data-go-button="2">Стоимость и Гарантии</span>
+            <span class="header__menu-item" data-go-button="3">Документы</span>
+            <span class="header__menu-item" data-go-button="4">Контакты</span>
         </div>
     </div>
 </header>
@@ -43,14 +42,14 @@
                     <span class="phone-item">(+371) <strong>22-45-76-31</strong></span>
                     <span class="phone-item">(+371) <strong>22-32-99-45</strong></span>
                 </div>
-                <a href="#" class="button button--big">
-                    <span class="button-text button-text--bold">
+                <span class="button button--big">
+                    <span class="button-text button-text--bold" data-go-button="4">
                         сэкономьте на налогах прямо сейчас
                     </span>
-                    <span class="button-text">
+                    <span class="button-text" data-go-button="4">
                         Бесплатная консультация
                     </span>
-                </a>
+                </span>
             </div>
         </div>
     </section>
@@ -105,14 +104,14 @@
                 <div class="section__text section__text--inner-center">
                     Узнайте, какая юрисдикция подходит вашему бизнесу
                 </div>
-                <a href="#" class="button button--center">
+                <span class="button button--center" data-go-button="4">
                     <span class="button-text button-text--bold">
                         бесплатная &nbsp;
                     </span>
                     <span class="button-text button-text--upper">
                         консультация
                     </span>
-                </a>
+                </span>
             </div>
         </div>
     </section>
@@ -129,32 +128,32 @@
             <div class="vid-b__list">
                 <div class="vid-b__list-item for-four">
                     <div class="all-types-icon khalifa-img"></div>
-                    <div class="vid-text">
-                        Подайте всего 2 документа
+                    <div class="vid-text vid-text--plus20">
+                        Регистрация и продажа оффшорных и не оффшорных компаний в 16 юрисдикциях
                     </div>
                 </div>
                 <div class="vid-b__list-item for-four">
                     <div class="all-types-icon visa-img"></div>
-                    <div class="vid-text">
-                        Подождите от 1-го дня
+                    <div class="vid-text vid-text--plus20">
+                        Оформление анонимных карт VISA, выпущенных в Гибралтаре
                     </div>
                 </div>
                 <div class="vid-b__list-item for-four">
                     <div class="all-types-icon servide-img"></div>
-                    <div class="vid-text">
-                        Платите от 1200 EUR за услуги под ключ
+                    <div class="vid-text vid-text--plus20">
+                        Оформление расчетных и банковских счетов
                     </div>
                 </div>
                 <div class="vid-b__list-item for-four">
                     <div class="all-types-icon box-img"></div>
-                    <div class="vid-text">
-                        Бесплатная доставка по России и СНГ
+                    <div class="vid-text vid-text--plus20">
+                        Хранение документов в банковском сейфе на территории Латвии
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="section section--flags">
+    <section class="section section--flags" data-go-place="0">
        <div class="wrapper">
            <div class="flags">
                <div class="section__title">
@@ -560,18 +559,18 @@
                <div class="section__text section__text--inner-center">
                    Всё ещё не знаете, какая страна подходит вашему бизнесу?
                </div>
-               <a href="#" class="button button--center">
+               <span class="button button--center" data-go-button="4">
                     <span class="button-text button-text--bold">
                         бесплатная &nbsp;
                     </span>
                    <span class="button-text button-text--upper">
                         консультация
                     </span>
-               </a>
+               </span>
            </div>
        </div>
     </section>
-    <section class="section section--new-level">
+    <section class="section section--new-level" data-go-place="1">
         <div class="wrapper">
             <div class="new-level">
                 <div class="section__title">
@@ -680,7 +679,7 @@
             </div>
         </div>
     </section>
-    <section class="section section--price">
+    <section class="section section--price" data-go-place="2">
         <div class="wrapper">
             <div class="price">
                 <div class="section__title">
@@ -735,21 +734,21 @@
                     </div>
                 </div>
 
-                <a href="#" class="button button--center-mid">
+                <span class="button button--center-mid" data-go-button="4">
                     <span class="button-text button-text--bold">
                         Начните оформление &nbsp;
                     </span>
                     <span class="button-text button-text--upper">
                         прямо сейчас
                     </span>
-                </a>
+                </span>
                 <div class="under-button-text">
                     <strong>Бесплатная</strong> консультация
                 </div>
             </div>
         </div>
     </section>
-    <section class="section section--open">
+    <section class="section section--open" data-go-place="3">
         <div class="wrapper">
             <div class="open-o">
                 <div class="section__title">
@@ -832,14 +831,14 @@
                     </div>
                 </div>
 
-                <a href="#" class="button button--center-mid-v2">
+                <span class="button button--center-mid-v2" data-go-button="4">
                     <span class="button-text button-text--bold">
                         Начните оформление &nbsp;
                     </span>
                     <span class="button-text button-text--upper">
                         прямо сейчас
                     </span>
-                </a>
+                </span>
                 <div class="under-button-text">
                     <strong>Бесплатная</strong> консультация
                 </div>
@@ -847,7 +846,7 @@
         </div>
     </section>
 
-    <section class="section section--form">
+    <section class="section section--form" data-go-place="4">
         <div class="wrapper">
             <div class="form-b">
                 <div class="section__title section__title--c-white">

@@ -24,12 +24,15 @@ html, body
   min-height 100%
 
 header
-  position relative
+  position fixed
+  top 0
+  left 0
   width 100%
   height auto
-  padding 30px 0
+  padding 11px 0
   background-color #3e404d
   display block
+  z-index 10
 
 footer
   position relative
@@ -40,16 +43,16 @@ footer
 
 input, textarea
   &::-webkit-input-placeholder
-    color #252525
+    color #8f8f8f
   &:-moz-placeholder
-    color #252525
+    color #8f8f8f
   &::-moz-placeholder
-    color #252525
+    color #8f8f8f
   &:-ms-input-placeholder
-    color #252525
+    color #8f8f8f
   &:-webkit-autofill
     -webkit-box-shadow 0 0 0px 1000px white inset
-    -webkit-text-fill-color #252525 !important
+    -webkit-text-fill-color #8f8f8f !important
   &:focus
     &::-webkit-input-placeholder
       transition color 0.3s ease
@@ -91,9 +94,7 @@ input, textarea
   background-color #ffffff
   +modifier(top)
     height 550px
-    background-image url('../images/top-bg.png')
-    background-repeat no-repeat
-    background-position center right
+    padding-top 50px
   +modifier(vid)
     height 630px
     background-color #f4f8fd
@@ -215,6 +216,19 @@ input, textarea
   height auto
   padding 55px 0 0 0
 
+  &:after
+    content ""
+    position absolute
+    top 0
+    right 0
+    display block
+    width 707px
+    height 550px
+    background-image url('../images/bg.png')
+    background-repeat no-repeat
+    background-position center
+
+
   +element(title)
     position relative
     display block
@@ -229,11 +243,18 @@ input, textarea
     justify-content center
     align-items center
     padding-left 88px
-    background-image url('../images/phone-ico.png')
+    background-image url('../images/phone-ico2.png')
     background-repeat no-repeat
     background-position left center
     flex-wrap wrap
     margin-bottom  24px
+    &:before
+      content ""
+      position absolute
+      top 0
+      left 0
+      display block
+
 
 .title-text
   position relative
@@ -294,7 +315,7 @@ input, textarea
     margin 0 auto
   +modifier(center-mid)
     width 380px
-    margin 115px auto 0 auto
+    margin 90px auto 0 auto
   +modifier(center-mid-v2)
     width 380px
     margin 60px auto 0 auto
@@ -362,15 +383,23 @@ input, textarea
   background-position center
   &.khalifa-img
     background-image url('../images/khalifa-img.png')
+    border 3px solid #dfe8f3
+    box-sizing border-box
 
   &.visa-img
     background-image url('../images/visa-img.png')
+    border 3px solid #dfe8f3
+    box-sizing border-box
 
   &.servide-img
     background-image url('../images/service-img.png')
+    border 3px solid #dfe8f3
+    box-sizing border-box
 
   &.box-img
     background-image url('../images/box-img.png')
+    border 3px solid #dfe8f3
+    box-sizing border-box
 
   &.circle-k
     opacity 1
@@ -421,6 +450,10 @@ input, textarea
 
   .for-four &
     padding 10px 50px 0 50px
+
+    &
+      +modifier(plus20)
+        padding 20px 50px 0 50px
 
   .for-four-v2 &
     padding 10px 35px 0 35px
@@ -691,6 +724,7 @@ input, textarea
     font-weight 300
     text-align center
     padding 20px
+    box-sizing border-box
 
   +element(text)
     padding 15px 0
@@ -715,7 +749,7 @@ input, textarea
     height 100%
     display block
     box-sizing border-box
-    padding 12px 143px
+    padding 12px 120px
 
     & form
       position relative
@@ -886,7 +920,7 @@ input, textarea
     will-change height, background-color, width
     &.open
       overflow auto
-      height 150px
+      height 200px
       width 80px
       background-color #ffffff
       z-index 2
