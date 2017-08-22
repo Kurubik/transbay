@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     for (i = 0; i < flags.length; i++) {
         flags[i].addEventListener('click', function() {
             useTel.value = '+' + this.getAttribute('data-prefix');
-            var flagImge = this.querySelector('img');
-            setFlag.setAttribute('src', flagImge.getAttribute('src'));
+            var flagImage = this.querySelector('img');
+            setFlag.setAttribute('src', flagImage.getAttribute('src'));
             setFlagContainer.classList.remove('hide');
             flagList.classList.remove('open');
         });
