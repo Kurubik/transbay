@@ -58,6 +58,10 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         var formOk = true;
         var inputs = this.querySelectorAll('[data-validate]');
+        var name = '';
+        var email = '';
+        var phone = '';
+        var text = '';
 
         for (i = 0; i < inputs.length; i++) {
             inputs[i].parentNode.classList.remove('error');
@@ -70,9 +74,44 @@ document.addEventListener('DOMContentLoaded', function() {
                 formOk = false;
                 inputs[i].parentNode.classList.add('error');
             }
+            switch (inputs[i].getAttribute('name')) {
+                case 'wb_input_0':
+                    name = inputs[i].value;
+                    break;
+                case 'wb_input_1':
+                    email = inputs[i].value;
+                    break;
+                case 'wb_input_2':
+                    phone = inputs[i].value;
+                    break;
+                case 'wb_input_3':
+                    text = inputs[i].value;
+                    break;
+            }
         }
         if (formOk) {
-            return true;
+            var http = new XMLHttpRequest();
+            var url = "/";
+            var params = new FormData(form);
+            http.open("POST", url, true);
+            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            http.onreadystatechange = function() {
+                if(http.readyState == 4 && http.status == 200) {
+                    alert('Сообщение отправлено');
+                    for (i = 0; i < inputs.length; i++) {
+                        inputs[i].value = null;
+                    }
+                    return true;
+                }
+            };
+            http.send(JSON.stringify(params));
+            carrotquest.track('registered', {
+                '$name': name,
+                '$email': email,
+                '$phone': phone,
+                'text': text
+            });
+
         }
 
         return false;
