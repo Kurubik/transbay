@@ -5,7 +5,7 @@
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <![endif]-->
-    <--meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
     <meta name="format-detection" content="telephone=no">
     <link href="https://fonts.googleapis.com/css?family=Italianno|Roboto:100,300,400,500,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
@@ -27,7 +27,7 @@
     </script>
 </head>
 <body >
-<header class="header">
+<header class="header" data-header>
     <div class="wrapper wrapper--flex-b-c">
         <span class="header__logo" data-go-button="5">transbay.eu</span>
         <div class="header__menu">
@@ -36,6 +36,13 @@
             <span class="header__menu-item" data-go-button="2">Стоимость и Гарантии</span>
             <span class="header__menu-item" data-go-button="3">Документы</span>
             <span class="header__menu-item" data-go-button="4">Контакты</span>
+        </div>
+        <div class="header__burger">
+            <div class="burger" data-menu-open>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </div>
 </header>
@@ -58,7 +65,7 @@
                 </div>
                 <span class="button button--big" data-go-button="4">
                     <span class="button-text button-text--bold">
-                        сэкономьте на налогах прямо сейчас
+                        сэкономьте на налогах
                     </span>
                     <span class="button-text">
                         Бесплатная консультация
@@ -72,7 +79,7 @@
         <div class="wrapper">
             <div class="vid-b">
                 <div class="section__title">
-                    Снижайте налоговую нагрузку уже в этом месяце:
+                    ОПТИМИЗИРУЙТЕ НАЛОГИ уже в этом месяце:
                 </div>
                 <div class="section__text">
                     Как это работает
@@ -99,7 +106,7 @@
                     <div class="vid-b__list-item">
                         <img class="vid-icon" src="images/car-ico.png" alt="car">
                         <div class="vid-text">
-                            Бесплатная доставка по России и СНГ
+                            Бесплатная доставка в любую страну
                         </div>
                     </div>
                     <div class="vid-b__list-item">
@@ -111,7 +118,7 @@
                     <div class="vid-b__list-item">
                         <img class="vid-icon" src="images/pin-ico.png" alt="pin">
                         <div class="vid-text">
-                            Доступно 14 юрисдикций
+                            Доступно 16 юрисдикций
                         </div>
                     </div>
                 </div>
@@ -136,7 +143,7 @@
                     Заказывайте все виды оффшорных услуг в одном месте
                 </div>
                 <div class="section__text">
-                    Оформление и выдача документов в главном офисе в Риге (Латвия)
+                    Закажите компанию онлайн и курьер доставит документы по указанному адресу
                 </div>
             </div>
             <div class="vid-b__list">
@@ -155,13 +162,13 @@
                 <div class="vid-b__list-item for-four">
                     <div class="all-types-icon servide-img"></div>
                     <div class="vid-text vid-text--plus20">
-                        Оформление расчетных и банковских счетов
+                        Помощь в оформлении расчетных и банковских счетов
                     </div>
                 </div>
                 <div class="vid-b__list-item for-four">
                     <div class="all-types-icon box-img"></div>
                     <div class="vid-text vid-text--plus20">
-                        Хранение документов в банковском сейфе на территории Латвии
+                        Хранение документов в надежном сейфе на территории Латвии
                     </div>
                 </div>
             </div>
@@ -200,8 +207,7 @@
                                <li>Не входит в "чёрный список" оффшорных стран</li>
                                <li>Не требуется отчётность</li>
                                <li>Не подлежит оплате уставной капитал</li>
-                               <li>Не разрешены акции на предъявителя</li>
-                               <li>Налоговый статус - резидент</li>
+                               <li>Налоговый статус - резидент (могут быть резиденты любой страны)</li>
                                <li>Открытый реестр компаний</li>
                            </ul>
                        </div>
@@ -218,7 +224,7 @@
                                    Минимальный уставной капитал
                                </div>
                                <div class="flag-top-text flag-top-text--strong">
-                                   1000 ZAR
+                                   0
                                </div>
                            </div>
                            <div class="flag-item__top-text">
@@ -226,15 +232,14 @@
                                    Ставка корпоративного налога
                                </div>
                                <div class="flag-top-text flag-top-text--strong">
-                                   0-37.8%
+                                   18-40%
                                </div>
                            </div>
                            <ul class="flag-item__list">
                                <li>Не входит в "чёрный список" оффшорных стран</li>
                                <li>Требуется отчётность</li>
                                <li>Должно быть оплачено не менее четверти уставного капитала</li>
-                               <li>Доступны, но не рекомендуются акции на предъявителя</li>
-                               <li>Налоговый статус - резидент</li>
+                               <li>Налоговый статус - резидент — или нерезидент</li>
                                <li>Открытый реестр компаний</li>
                            </ul>
                        </div>
@@ -243,7 +248,7 @@
                    <div class="flags__list-item">
                        <div class="flag-item__header">
                            <img src="images/gb-flag.png" alt="gb">
-                           <span class="flag-title">Шотландия LP</span>
+                           <span class="flag-title">Шотландия</span>
                        </div>
                        <div class="flag-item__body">
                            <div class="flag-item__top-text">
@@ -275,7 +280,7 @@
                    <div class="flags__list-item">
                        <div class="flag-item__header">
                            <img src="images/gb-flag.png" alt="gb">
-                           <span class="flag-title">Англия LP</span>
+                           <span class="flag-title">Англия</span>
                        </div>
                        <div class="flag-item__body">
                            <div class="flag-item__top-text">
@@ -291,7 +296,7 @@
                                    Ставка корпоративного налога
                                </div>
                                <div class="flag-top-text flag-top-text--strong">
-                                   0%-20%
+                                   20%
                                </div>
                            </div>
                            <ul class="flag-item__list">
@@ -307,7 +312,7 @@
                    <div class="flags__list-item">
                        <div class="flag-item__header">
                            <img src="images/ireland-flag.png" alt="ireland-flag">
-                           <span class="flag-title">Ирландия LP</span>
+                           <span class="flag-title">Ирландия</span>
                        </div>
                        <div class="flag-item__body">
                            <div class="flag-item__top-text">
@@ -328,10 +333,10 @@
                            </div>
                            <ul class="flag-item__list">
                                <li>Не входит в "чёрный список" оффшорных стран</li>
-                               <li>Требуется отчётность</li>
+                               <li>Требуется отчётность — не предусмотрен</li>
                                <li>Не подлежит оплате уставной капитал</li>
                                <li>Невозможны акции на предъявителя</li>
-                               <li>Налоговый статус - резидент</li>
+                               <li>Налоговый статус - нерезидент</li>
                                <li>Открытый реестр компаний</li>
                            </ul>
                        </div>
@@ -348,7 +353,7 @@
                                    Минимальный уставной капитал
                                </div>
                                <div class="flag-top-text flag-top-text--strong">
-                                   1 USD
+                                   50 000 USD
                                </div>
                            </div>
                            <div class="flag-item__top-text">
@@ -363,7 +368,7 @@
                                <li>Не входит в "чёрный список" оффшорных стран</li>
                                <li>Не требуется отчётность</li>
                                <li>Не подлежит оплате уставной капитал</li>
-                               <li>Невозможны акции на предъявителя</li>
+                               <li>Возможны акции на предъявителя</li>
                                <li>Налоговый статус - нерезидент</li>
                                <li>Закрытый реестр компаний</li>
                            </ul>
@@ -480,7 +485,7 @@
                                    Минимальный уставной капитал
                                </div>
                                <div class="flag-top-text flag-top-text--strong">
-                                   2,800 EUR
+                                   2,800 EUR <span>(Līdz reģistrācijas pieteikuma iesniegšanai Uzņēmumu reģistrā jāapmaksā vismaz 50% )</span>
                                </div>
                            </div>
                            <div class="flag-item__top-text">
@@ -488,16 +493,16 @@
                                    Ставка корпоративного налога
                                </div>
                                <div class="flag-top-text flag-top-text--strong">
-                                   0%
+                                   15%
                                </div>
                            </div>
                            <ul class="flag-item__list">
                                <li>Не входит в "чёрный список" оффшорных стран</li>
                                <li>Требуется отчётность</li>
                                <li>Подлежит оплате уставной капитал</li>
-                               <li>Возможны акции на предъявителя</li>
-                               <li>Налоговый статус - резидент</li>
-                               <li>Закрытый реестр компаний</li>
+                               <li>Возможны акции на предъявителя (SIA nav AS)</li>
+                               <li>Налоговый статус - нерезидент</li>
+                               <li>Открытый реестр компаний</li>
                            </ul>
                        </div>
                    </div>
@@ -528,7 +533,7 @@
                                <li>Не входит в "чёрный список" оффшорных стран</li>
                                <li>Не требуется отчётность</li>
                                <li>Не подлежит оплате уставной капитал</li>
-                               <li>невозможны акции на предъявителя</li>
+                               <li>Возможны акции на предъявителя</li>
                                <li>Налоговый статус - нерезидент</li>
                                <li>Закрытый реестр компаний</li>
                            </ul>
@@ -546,7 +551,7 @@
                                    Минимальный уставной капитал
                                </div>
                                <div class="flag-top-text flag-top-text--strong">
-                                   1 EUR
+                                   2500 EUR
                                </div>
                            </div>
                            <div class="flag-item__top-text">
@@ -559,15 +564,14 @@
                            </div>
                            <ul class="flag-item__list">
                                <li>Не входит в "чёрный список" оффшорных стран</li>
-                               <li>Не требуется отчётность</li>
-                               <li>Не подлежит оплате уставной капитал</li>
+                               <li>Требуется отчётность</li>
+                               <li>Подлежит оплате уставной капитал</li>
                                <li>Возможны акции на предъявителя</li>
-                               <li>Налоговый статус - </li>
+                               <li>Налоговый статус - нерезидент</li>
                                <li>Закрытый реестр компаний</li>
                            </ul>
                        </div>
                    </div>
-
 
                </div>
                <div class="section__text section__text--inner-center">
@@ -593,12 +597,12 @@
                 </div>
                 <div class="new-level-palka"></div>
                 <div class="new-level__container new-level__container--p35">
-                    <div class="new-level__bl0ck">
+                    <div class="new-level__bl0ck new-level__bl0ck--title">
                         <span class="new-level-title">
                             Вам подходят наши услуги, если:
                         </span>
                     </div>
-                    <div class="new-level__bl0ck">
+                    <div class="new-level__bl0ck new-level__bl0ck--title new-level__bl0ck--title-right">
                         <span class="new-level-title">
                             Что Вы получите:
                         </span>
@@ -609,7 +613,7 @@
                     <div class="new-level__bl0ck">
                         <div class="new-level-ok-text new-level-ok-text--right">
                             <strong>Подтверждение документов на территории EC</strong> <br>
-                            Абсолютно законная легализация бизнеса в Латвии
+                            Легализация бизнеса в Латвии
                         </div>
                     </div>
                 </div>
@@ -626,7 +630,7 @@
                     <div class="new-level__bl0ck">
                         <div class="new-level-ok-text new-level-ok-text--right">
                             <strong>Комплексное решение</strong> <br>
-                            Подбираем вариант по бюджету с максимально выгодными ставками по налогам
+                            Подбираем компанию по Вашей потребности, экономя Ваш бюджет
                         </div>
                     </div>
                 </div>
@@ -682,13 +686,64 @@
                     </div>
                 </div>
             </div>
+            <div class="new-level mobile">
+                <div class="section__title">
+                    TRANSBAY.EU — новый уровень безопасности <br>
+                    и развития вашего бизнеса
+                </div>
+                <div class="new-level-palka"></div>
+                <div class="new-level__container new-level__container--p35">
+                    <div class="new-level__bl0ck">
+                        <span class="new-level-title">
+                            Вам подходят наши услуги, если:
+                        </span>
+                        <div class="new-level-ok-text new-level-ok-text--left">
+                            Вы хотите сохранить в тайне информацию о владельцах бизнеса
+                        </div>
+                        <div class="new-level-ok-text new-level-ok-text--left">
+                            У вас нет возможности снизить налоговую нагрузку в своей стране
+                        </div>
+                        <div class="new-level-ok-text new-level-ok-text--left">
+                            Вам нужна регистрация бизнеса в престижной зарубежной юрисдикции
+                        </div>
+                        <div class="new-level-ok-text new-level-ok-text--left">
+                            Вы преследуете несколько или все перечисленные цели одновременно
+                        </div>
+                    </div>
+                    <div class="new-level__bl0ck">
+                        <span class="new-level-title">
+                            Что Вы получите:
+                        </span>
+                        <div class="new-level-ok-text new-level-ok-text--right">
+                            <strong>Подтверждение документов на территории EC</strong> <br>
+                            Легализация бизнеса в Латвии
+                        </div>
+                        <div class="new-level-ok-text new-level-ok-text--right">
+                            <strong>Комплексное решение</strong> <br>
+                            Подбираем компанию по Вашей потребности, экономя Ваш бюджет
+                        </div>
+                        <div class="new-level-ok-text new-level-ok-text--right">
+                            <strong>Без черных списков</strong> <br>
+                            Вы получаете оффшорную компанию в юрисдикции с безупречной репутацией
+                        </div>
+                        <div class="new-level-ok-text new-level-ok-text--right">
+                            <strong>Конфиденциальность</strong> <br>
+                            Вся информация о бенефициарах закрыта на 100%
+                        </div>
+                        <div class="new-level-ok-text new-level-ok-text--right">
+                            <strong>Банковские услуги</strong> <br>
+                            Помогаем вам открыть и обслуживать расчетные и банковские счета
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <section class="section section--work">
         <div class="wrapper">
             <div class="work">
                 <div class="section__text section__text--p35">
-                    С нами уже работают:
+                    С нами сотрудничают предпрениматели :
                 </div>
             </div>
         </div>
@@ -700,18 +755,18 @@
                     Сколько стоит быстрая регистрация компании <br>
                     в надёжной и престижной юрисдикции
                 </div>
-                <div class="section__text">
+                <div class="section__text section__text--bigo">
                     В зависимости от выбранной страны и <br>ставящихся задач стоимость услуг составит <br>
                     <strong>от 1200 до 3000 EUR.</strong>
                 </div>
                 <div class="new-level-palka new-level-palka--triangle"></div>
-                <div class="new-level__container new-level__container--p35">
-                    <div class="new-level__bl0ck">
+                <div class="new-level__container new-level__container--p35 not-mobile">
+                    <div class="new-level__bl0ck new-level__bl0ck--title">
                         <span class="new-level-title new-level-title--centr">
                             Что входит в стоимость?
                         </span>
                     </div>
-                    <div class="new-level__bl0ck">
+                    <div class="new-level__bl0ck new-level__bl0ck--title new-level__bl0ck--title-right">
                         <span class="new-level-title new-level-title--centr">
                             Какие гарантии?
                         </span>
@@ -719,6 +774,9 @@
                 </div>
                 <div class="new-level__container new-level__container--p60">
                     <div class="new-level__bl0ck">
+                        <span class="new-level-title new-level-title--centr mobile">
+                            Что входит в стоимость?
+                        </span>
                         <div class="new-level-ok-text new-level-ok-text--left-ok">
                             Бесплатную информационную поддержку по всем вопросам
                         </div>
@@ -736,6 +794,9 @@
                         </div>
                     </div>
                     <div class="new-level__bl0ck">
+                        <span class="new-level-title new-level-title--centr mobile">
+                            Какие гарантии?
+                        </span>
                         <div class="new-level-ok-text new-level-ok-text--right-ok">
                             Расположение главного офиса на территории Латвии гарантирует защиту ваших документов и материальных ценностей от санкций государственных структур вашей страны
                         </div>
@@ -743,7 +804,7 @@
                             Руководство TRANSBAY.EU гарантирует, что оказанные услуги по оформлению оффшорной компании будут полностью отвечать задачам вашего бизнеса
                         </div>
                         <div class="new-level-ok-text new-level-ok-text--right-ok">
-                            Ваши материальные ценности хранятся в надежном сейфе латвийского банка с безупречной репутацией, который также предоставляет гарантии сохранности имущества
+                            Ваши документы хранятся в надежном сейфе латвийского банка с безупречной репутацией, который также предоставляет гарантии сохранности имущества и Ваших тайн
                         </div>
                     </div>
                 </div>
@@ -869,8 +930,7 @@
 
                 <div class="form-box">
                     <div class="form-box__title">
-                        Оставьте нам свои контактные данные в этой форме и мы Вас <br>
-                        <strong>БЕСПЛАТНО</strong> проконсультируем по всем вопросам
+                        Задайте интересующие Вас вопросы и мы проконсультируем Вас БЕСПЛАТНО
                     </div>
                     <div class="form-box__form">
                         <form method="post" data-send-form>
@@ -928,21 +988,23 @@
                 </div>
                 <div class="footer-emails">
                     <a href="mailto:sales@transbay.eu">sales@transbay.eu</a>
-                    <a href="mailto:support@utrader.com">support@utrader.com</a>
+                    <a href="mailto:support@transbay.eu">support@transbay.eu</a>
                 </div>
             </div>
             <div class="footer-block__item">
                 <p class="footer-b-text">
                     <strong>"NELFORD MANIA " LP</strong><br>
                     Company number: SL028931 <br>
-                    <strong>Юридический адрес:</strong><br>
-                    39/5 Granton Crescent, Edinburgh, <br>
-                    Scotland United Kingdom, EH5 1BN <br>
+                    <span>
+                        <strong>Юридический адрес:</strong><br>
+                        39/5 Granton Crescent, Edinburgh, <br>
+                        Scotland United Kingdom, EH5 1BN <br>
+                    </span>
                     <strong>Адрес офиса:</strong><br>
                     26-30 Kuģu iela, Rīga, Latvija, LV-1048 <br>
                 </p>
             </div>
-            <div class="footer-block__item">
+            <div class="footer-block__item footer-block__item--none">
                 Мы в социальных сетях:
                 <div class="footer-icons">
                     <a class="icons" href="https://www.facebook.com/Transbayeu-1417279608353934/?fref=ts"><img src="images/fb-ico.png" alt=""></a>

@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var setFlagContainer = document.querySelector('[data-set-flag-container]');
     var anchorButtons = document.querySelectorAll('[data-go-button]');
     var form = document.querySelector('[data-send-form]');
+    var burger = document.querySelector('[data-menu-open]');
+    var header = document.querySelector('[data-header]');
     var i = 0;
 
     function validation(type, value) {
@@ -53,6 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    burger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        header.classList.toggle('active');
+    });
 
     form.addEventListener('submit', function(e) {
         e.preventDefault();

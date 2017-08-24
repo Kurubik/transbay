@@ -19,7 +19,7 @@ html, body
   font-family 'Roboto', sans-serif
   width 100%
   height auto
-  min-width 1200px
+  min-width 320px
   font-size 0
   min-height 100%
 
@@ -33,6 +33,16 @@ header
   background-color #3e404d
   display block
   z-index 10
+  transition height 0.3s ease, padding 0.3s ease
+  will-change height, padding
+  +mq(0, 719px)
+    height 50px
+    box-sizing border-box
+
+  &.active
+    +mq(0, 719px)
+        height 240px
+        padding 11px 0 17px 0
 
 footer
   position relative
@@ -40,6 +50,8 @@ footer
   padding 60px 0 45px 0
   background-color #ffffff
   display block
+  +mq(0, 719px)
+    padding 30px 0 45px 0
 
 input, textarea
   &::-webkit-input-placeholder
@@ -85,6 +97,51 @@ input, textarea
     display flex
     justify-content space-between
     align-items center
+    +mq(0, 719px)
+      align-items flex-start
+
+  +mq(0, 1220px)
+    padding 0 20px
+    box-sizing border-box
+    overflow hidden
+
+  +mq(0, 719px)
+    padding 0 10px
+    box-sizing border-box
+    overflow hidden
+
+
+.burger
+  position relative
+  display block
+  width 32px
+  height 21px
+  cursor pointer
+  top 5px
+  span
+    position relative
+    display block
+    height 3px
+    width 100%
+    background-color #DBDBDB
+    transition transform 0.3s ease
+    will-change transform
+    &:nth-child(1)
+      margin-bottom 4px
+    &:nth-child(2)
+      margin-bottom 4px
+
+  &.active
+    margin-top 12px
+    span
+      &:nth-child(1)
+        transform rotate(45deg)
+        margin-bottom -10px
+      &:nth-child(2)
+        opacity 0
+      &:nth-child(3)
+        transform rotate(-45deg)
+
 
 .section
   position relative
@@ -95,14 +152,25 @@ input, textarea
   +modifier(top)
     height 550px
     padding-top 50px
+    +mq(0, 719px)
+      height auto
+      padding 50px 0 30px 0
   +modifier(vid)
     height 630px
     background-color #f4f8fd
+    +mq(0, 1220px)
+      height auto
+      padding-bottom 30px
   +modifier(all-types)
     height 475px
+    +mq(0, 1220px)
+      height auto
+      padding-bottom 30px
   +modifier(flags)
     padding 0 0 70px 0
     background-color #f4f8fd
+    +mq(0, 1220px)
+      padding 0 0 30px 0
   +modifier(new-level)
     padding 0 0 83px 0
   +modifier(work)
@@ -142,6 +210,9 @@ input, textarea
     text-align center
     padding-top 30px
 
+    +mq(0, 1220px)
+      font-size 20px
+
     &:after
       content ""
       position relative
@@ -169,10 +240,22 @@ input, textarea
     +modifier(inner)
       padding 18px 0
       text-align left
+      +mq(0, 719px)
+        text-align center
+        padding 18px 50px 0 50px
     +modifier(inner-center)
       padding 45px 0 15px 0
     +modifier(p35)
       padding 35px 0 0 0
+
+    +modifier(bigo)
+      +mq(0, 719px)
+        box-sizing border-box
+        padding 0 10px
+
+    +mq(0, 1220px)
+      font-size 18px
+
 
 
 .header
@@ -186,12 +269,32 @@ input, textarea
     text-decoration none
     display block
     cursor pointer
+    +mq(0, 719px)
+      line-height 30px
+
+  +element(burger)
+    display none
+    +mq(0, 719px)
+      display block
 
   +element(menu)
     position relative
     display flex
     justify-content space-between
     align-items center
+    transition opacity 0.3s ease, z-index 0.3s ease
+    will-change opacity, z-index
+    +mq(0, 719px)
+      opacity 0
+      z-index -1
+      pointer-events none
+      position absolute
+      bottom 0
+      .active &
+        display block
+        opacity 1
+        z-index 1
+        pointer-events all
 
   +element(menu-item)
     position relative
@@ -204,8 +307,17 @@ input, textarea
     text-decoration none
     cursor pointer
 
+    +mq(0, 1220px)
+      font-size 13px
+
+    +mq(0, 719px)
+      line-height 34px
+      font-size 14px
+
     & + &
       margin-left 25px
+      +mq(0, 719px)
+        margin-left 0
 
 .top-b
   position relative
@@ -216,6 +328,9 @@ input, textarea
   width 100%
   height auto
   padding 55px 0 0 0
+
+  +mq(0, 719px)
+    padding 17px 0 0 0
 
   &:after
     content ""
@@ -229,6 +344,12 @@ input, textarea
     background-repeat no-repeat
     background-position center
 
+    +mq(0, 1220px)
+      left 340px
+
+    +mq(0, 719px)
+      display none
+
 
   +element(title)
     position relative
@@ -236,6 +357,14 @@ input, textarea
     width 595px
     padding 0 0 18px 0
     border-bottom 2px solid #3e404d
+
+    +mq(0, 1220px)
+      width 445px
+
+    +mq(0, 719px)
+      width 100%
+      box-sizing border-box
+      padding 0 30px 0 18px 30px
 
   +element(phones)
     position relative
@@ -249,6 +378,11 @@ input, textarea
     background-position left center
     flex-wrap wrap
     margin-bottom  24px
+
+    +mq(0, 719px)
+      margin 15px auto 24px auto
+      width 195px
+
     &:before
       content ""
       position absolute
@@ -281,6 +415,29 @@ input, textarea
     font-size 36px
     font-weight 300
 
+  +mq(720px, 1220px)
+    font-size 32px
+    +modifier(big)
+      font-size 39px
+      line-height 43px
+    +modifier(c-blue)
+      font-size 33px
+      line-height 42px
+    +modifier(light)
+      font-size 28px
+
+  +mq(0, 719px)
+    font-size 26px
+    text-align center
+    +modifier(big)
+      font-size 26px
+      line-height 32px
+    +modifier(c-blue)
+      font-size 21px
+      line-height 32px
+    +modifier(light)
+      font-size 21px
+
 .phone-item
   position relative
   display block
@@ -306,23 +463,55 @@ input, textarea
   height 60px
   border none
   box-shadow none
+
+  +mq(0, 1220px)
+    border-radius 10px
+
+  +mq(0, 719px)
+    width 100%
+
   +modifier(big)
     width 461px
     height 77px
     flex-wrap wrap
     & span
       line-height 25px
+      width 100%
+      text-align center
+
+    +mq(0, 1220px)
+      width 405px
+      height 71px
+
+    +mq(0, 719px)
+      margin 0 auto
+
+
   +modifier(center)
     margin 0 auto
   +modifier(center-mid)
     width 380px
     margin 90px auto 0 auto
+    +mq(0, 719px)
+      width 100%
+      margin 50px auto 0 auto
   +modifier(center-mid-v2)
     width 380px
     margin 60px auto 0 auto
+    +mq(0, 719px)
+      width 100%
+      margin 50px auto 0 auto
   +modifier(form)
     width 380px
     margin 25px auto 0 auto
+    +mq(0, 719px)
+      height 77px
+      flex-wrap wrap
+      margin 0 auto
+      width 100%
+      margin-top 15px
+      & span
+        line-height 25px
 
 .button-text
   position relative
@@ -339,6 +528,22 @@ input, textarea
     text-transform uppercase
   +modifier(upper)
     text-transform uppercase
+
+  +mq(0, 1220px)
+    font-size 16px
+    line-height 60px
+    +modifier(bold)
+      font-size 16px
+    +modifier(upper)
+      font-size 16px
+
+  +mq(0, 719px)
+    font-size 14px
+    line-height 60px
+    +modifier(bold)
+      font-size 14px
+    +modifier(upper)
+      font-size 14px
 
 .vid-b
   position relative
@@ -360,14 +565,42 @@ input, textarea
     flex-wrap wrap
     width 33%
     padding-top 45px
+
+    +mq(0, 1220px)
+      width 50%
+      padding-top 70px
+
+      .open-o &
+        width 33%
+        padding-top 55px
+
+    +mq(0, 719px)
+      width 100%
+      padding-top 50px
+
+      .open-o &
+        width 100%
+        padding-top 35px
+
     +modifier(lilbit)
       width 10%
+      +mq(0, 1220px)
+        width 15% !important
 
     &.for-four
       width 25%
+      +mq(0, 1220px)
+        width 50%
+      +mq(0, 719px)
+        width 100%
 
     &.for-four-v2
       width 25%
+      +mq(0, 1220px)
+        width 50%
+      +mq(0, 719px)
+        width 100%
+        padding-top 40px
 
 
 .vid-icon
@@ -471,6 +704,8 @@ input, textarea
     justify-content space-between
     align-items center
     flex-wrap wrap
+    +mq(0, 719px)
+      justify-content center
 
   +element(list-item)
     position relative
@@ -481,6 +716,12 @@ input, textarea
     height 450px
     box-shadow 0 1px 1px rgba(25, 12, 2, 0.15)
     background-color #ffffff
+
+    +mq(0, 1220px)
+      width 330px
+
+    +mq(0, 719px)
+      height auto
 
 .flag-item
   +element(header)
@@ -553,6 +794,17 @@ input, textarea
     font-weight 700
     line-height 16px
     text-transform uppercase
+    padding-left 5px
+
+    +mq(0, 1220px)
+      white-space nowrap
+
+    & span
+      font-size 9px
+      font-weight 400
+      text-transform none
+      +mq(0, 1220px)
+        display none
 
 .flag-title
   position relative
@@ -566,6 +818,15 @@ input, textarea
 .new-level
   position relative
 
+  &.mobile
+    display none
+
+  +mq(0, 719px)
+    display none
+
+    &.mobile
+      display block
+
   +element(container)
     position relative
     display flex
@@ -573,12 +834,20 @@ input, textarea
     align-content flex-start
     width 100%
     z-index 5
+    +mq(0, 719px)
+      justify-content flex-start
+      flex-wrap wrap
+      &.not-mobile
+        display none
     +modifier(p35)
       padding-top 35px
     +modifier(p60)
       padding-top 55px
+      +mq(0, 719px)
+        padding-top 40px
     +modifier(p10)
       padding-top 10px
+
 
   +element(bl0ck)
     position relative
@@ -586,6 +855,28 @@ input, textarea
     width 385px
     height auto
     text-align right
+
+    +mq(0, 1220px)
+      width 260px
+
+      .price &
+        width 280px
+
+    +mq(0, 719px)
+      width 100%
+      text-align left
+
+      .price &
+        width 100%
+
+    +modifier(title)
+      +mq(0, 1220px)
+        width 320px
+
+    +modifier(title-right)
+      +mq(0, 1220px)
+        margin-left 50px !important
+
     +modifier(big)
       width 100%
       max-width 1026px
@@ -594,6 +885,17 @@ input, textarea
     & + &
       margin-left 212px
       text-align left
+
+      +mq(0, 1220px)
+        .price &
+          margin-left 100px
+
+      +mq(0, 719px)
+        margin-top 40px
+        margin-left 0
+        .price &
+          margin-left 0
+
 
 .new-level-title
   position relative
@@ -608,6 +910,15 @@ input, textarea
   line-height 34px
   box-sizing border-box
   padding 0 15px
+  &.mobile
+    display none
+  +mq(0, 1220px)
+    font-size 18px
+  +mq(0, 719px)
+    text-align center
+    height auto
+    &.mobile
+      display block
   +modifier(centr)
     text-align center
 
@@ -617,7 +928,12 @@ input, textarea
   font-family 'Roboto', sans-serif
   font-size 16px
   font-weight 300
+  +mq(0, 1220px)
+    box-sizing border-box
+    padding 25px 0 0 50px
   +modifier(right)
+    +mq(0, 719px)
+      padding 25px 0 0 60px
     &:before
       content ""
       position absolute
@@ -627,6 +943,12 @@ input, textarea
       width 111px
       height 42px
       background-image url('../images/ok-line.png')
+      +mq(0, 719px)
+        width 42px
+        right auto
+        left 0
+        top 26px
+        background-image url('../images/ok-ico.png')
   +modifier(left)
     &:before
       content ""
@@ -637,12 +959,23 @@ input, textarea
       width 88px
       height 18px
       background-image url('../images/ball-line.png')
+      +mq(0, 719px)
+        right auto
+        left 10px
+        top 26px
+        width 18px
+        background-image url('../images/circle.png')
   +modifier(right-ok)
     padding-left 66px
     text-align left
 
+    +mq(0, 719px)
+      padding-left 58px
+
     & + &
       margin-top 45px
+      +mq(0, 719px)
+        margin-top 0
 
     &:before
       content ""
@@ -653,12 +986,22 @@ input, textarea
       width 42px
       height 42px
       background-image url('../images/ok-ico.png')
+      +mq(0, 719px)
+        width 42px
+        right auto
+        left 0
+        top 26px
   +modifier(left-ok)
     padding-left 61px
     text-align left
 
+    +mq(0, 719px)
+      padding-left 58px
+
     & + &
       margin-top 45px
+      +mq(0, 719px)
+        margin-top 0
 
     &:before
       content ""
@@ -669,6 +1012,11 @@ input, textarea
       width 42px
       height 42px
       background-image url('../images/ok-blue-ico.png')
+      +mq(0, 719px)
+        width 42px
+        right auto
+        left 0
+        top 26px
 
 .new-level-palka
   position absolute
@@ -681,9 +1029,24 @@ input, textarea
   left 0
   right 0
   margin 0 auto
+
+  +mq(0, 1220px)
+    top 135px
+    height 700px
+
+  +mq(0, 719px)
+    display none
+
   +modifier(triangle)
     height 410px
     top 300px
+
+    +mq(0, 1220px)
+      height 525px
+
+    +mq(0, 719px)
+      display none
+
     &:after
       content ""
       position absolute
@@ -693,6 +1056,8 @@ input, textarea
       width 14px
       height 17px
       background-image url('../images/triangle.png')
+      +mq(0, 719px)
+        display none
 
 .under-button-text
   position relative
@@ -726,6 +1091,7 @@ input, textarea
     text-align center
     padding 20px
     box-sizing border-box
+    line-height 28px
 
   +element(text)
     padding 15px 0
@@ -744,6 +1110,10 @@ input, textarea
       color #ffffff
       text-decoration underline
 
+    +mq(0, 719px)
+      padding 15px 12px
+      box-sizing border-box
+
   +element(form)
     position relative
     width 100%
@@ -751,6 +1121,9 @@ input, textarea
     display block
     box-sizing border-box
     padding 12px 120px
+
+    +mq(0, 719px)
+      padding 12px
 
     & form
       position relative
@@ -769,6 +1142,8 @@ input, textarea
     box-sizing border-box
     +modifier(x2)
       width calc(50% - 7px)
+      +mq(0, 719px)
+        width 100%
     +modifier(text)
       height 95px
 
@@ -809,8 +1184,14 @@ input, textarea
   padding 15px 39px
   max-width 975px
   background-color #3a3f46
-  justify-content space-between
+  justify-content space-around
   align-content flex-start
+  +mq(0, 1220px)
+    box-sizing border-box
+  +mq(0, 719px)
+    padding 15px
+    box-sizing border-box
+    flex-wrap wrap
 
   +element(item)
     position relative
@@ -821,12 +1202,18 @@ input, textarea
     font-size 14px
     font-weight 400
     line-height 15px
+    +modifier(none)
+      display none
     & a
       color #ffffff
       font-family 'Roboto', sans-serif
       &.icons
         display block
         margin 0 15px 0 0
+
+    & + &
+      +mq(0, 719px)
+        padding-top 20px
 
 .footer-icons
   position relative
@@ -845,6 +1232,8 @@ input, textarea
   font-weight 400
   margin 0
   padding 0
+  & span
+    color #929292
 
 .footer-phones
   padding-left 42px
