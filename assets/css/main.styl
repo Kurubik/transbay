@@ -176,7 +176,8 @@ input, textarea
   +modifier(new-level)
     padding 0 0 83px 0
   +modifier(work)
-    padding 0 0 83px 0
+    height auto
+    padding 0 0 0 0
     background-color #f4f8fd
   +modifier(price)
     padding 0 0 33px 0
@@ -215,6 +216,22 @@ input, textarea
     +mq(0, 1220px)
       font-size 20px
 
+    +modifier(popup)
+      +mq(0, 720px)
+        font-size 18px
+
+    +modifier(left)
+      padding-top 0
+      text-align left
+      &:after
+        margin 10px 0 !important
+
+      +mq(0, 719px)
+        text-align center
+        &:after
+          margin 10px auto !important
+
+
     &:after
       content ""
       position relative
@@ -249,6 +266,25 @@ input, textarea
       padding 45px 0 15px 0
     +modifier(p35)
       padding 35px 0 0 0
+
+    +modifier(left)
+      text-align left
+      font-family 'Roboto', sans-serif
+      font-size 16px
+      font-weight 300
+      +mq(0, 719px)
+        text-align center
+
+    +modifier(popup)
+      text-align left
+      & p
+        padding-top 18px
+        color #2f2f30
+        font-family 'Roboto', sans-serif
+        margin 0
+        text-align left
+      +mq(0, 720px)
+        font-size 14px
 
     +modifier(bigo)
       +mq(0, 719px)
@@ -1074,6 +1110,41 @@ input, textarea
   font-weight 300
   padding-top 3px
 
+.work
+  display flex
+  justify-content space-between
+  align-items flex-start
+  padding 50px 0
+  +mq(0, 719px)
+    flex-wrap wrap
+    flex-direction column-reverse
+    padding 30px 0
+
+  +element(bg)
+    width 50%
+    box-sizing border-box
+    background-repeat no-repeat
+    background-position left center
+    background-size contain
+    background-image url('../images/stat.png')
+    height 281px
+    +mq(0, 719px)
+      width 100%
+      height 195px
+      background-position center
+
+  +element(text)
+    width 50%
+    box-sizing border-box
+    padding 0 30px 0 0
+    text-align center
+    +mq(0, 719px)
+      width 100%
+      padding 0 0 20px 0
+
+
+
+
 .form-box
   position relative
   width 100%
@@ -1391,7 +1462,7 @@ input, textarea
   z-index 100
   width 100%
   height 100%
-  max-width 1366px
+  max-width 1200px
   left 0
   right 0
   margin 0 auto
@@ -1472,12 +1543,13 @@ input, textarea
           fill #cd2430
   .textBlock
     position relative
-    background #f6f3ef
-    max-width 1366px
+    background #ffffff
+    max-width 1200px
     margin 0 auto
     padding 0
     top 50%
     transform translateY(-50%)
+    height 80%
     +mq(0, 480px)
       top 0
       transform translateY(0)
@@ -1507,24 +1579,24 @@ input, textarea
 
     .title
       text-align center
-      padding 13px 15% 67px 15%
+      padding 0
       opacity 1
       will-change opacity
       &.hide
         opacity 0
       +mq(481px,849px)
-        padding 13px 10% 67px 10%
+        padding 0
         font-size 30px
         line-height 34px
       +mq(0, 480px)
-        padding 13px 0 40px 0
+        padding 0
         font-size 22px
         line-height 26px
         [lang="ru"] &
           font-size 20px
     .text
       text-align center
-      margin 0 15% 60px 15%
+      margin 0
       will-change opacity
       strong
         font-family BanderaProBold
@@ -1536,11 +1608,11 @@ input, textarea
       +mq(481px,849px)
         font-size 16px
         line-height 22px
-        margin 0 10% 60px 10%
+        margin 0
       +mq(0, 480px)
         font-size 12px
         line-height 17px
-        margin 0 0 40px 0
+        margin 0
     .button
       position relative
       width 200px
