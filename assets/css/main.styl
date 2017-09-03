@@ -22,6 +22,8 @@ html, body
   min-width 320px
   font-size 0
   min-height 100%
+  &.popup
+    overflow hidden
 
 header
   position fixed
@@ -174,7 +176,8 @@ input, textarea
   +modifier(new-level)
     padding 0 0 83px 0
   +modifier(work)
-    padding 0 0 83px 0
+    height auto
+    padding 0 0 0 0
     background-color #f4f8fd
   +modifier(price)
     padding 0 0 33px 0
@@ -213,6 +216,22 @@ input, textarea
     +mq(0, 1220px)
       font-size 20px
 
+    +modifier(popup)
+      +mq(0, 720px)
+        font-size 18px
+
+    +modifier(left)
+      padding-top 0
+      text-align left
+      &:after
+        margin 10px 0 !important
+
+      +mq(0, 719px)
+        text-align center
+        &:after
+          margin 10px auto !important
+
+
     &:after
       content ""
       position relative
@@ -247,6 +266,25 @@ input, textarea
       padding 45px 0 15px 0
     +modifier(p35)
       padding 35px 0 0 0
+
+    +modifier(left)
+      text-align left
+      font-family 'Roboto', sans-serif
+      font-size 16px
+      font-weight 300
+      +mq(0, 719px)
+        text-align center
+
+    +modifier(popup)
+      text-align left
+      & p
+        padding-top 18px
+        color #2f2f30
+        font-family 'Roboto', sans-serif
+        margin 0
+        text-align left
+      +mq(0, 720px)
+        font-size 14px
 
     +modifier(bigo)
       +mq(0, 719px)
@@ -463,6 +501,13 @@ input, textarea
   height 60px
   border none
   box-shadow none
+  transition background-color 0.3s ease
+  will-change background-color
+  &:hover
+    background-color #2E6EED
+  &:active
+    background-color #2A4A8C
+
 
   +mq(0, 1220px)
     border-radius 10px
@@ -915,6 +960,8 @@ input, textarea
   +mq(0, 1220px)
     font-size 18px
   +mq(0, 719px)
+    line-height 23px
+    padding 8px 15px
     text-align center
     height auto
     &.mobile
@@ -1072,6 +1119,41 @@ input, textarea
   font-weight 300
   padding-top 3px
 
+.work
+  display flex
+  justify-content space-between
+  align-items flex-start
+  padding 50px 0
+  +mq(0, 719px)
+    flex-wrap wrap
+    flex-direction column-reverse
+    padding 30px 0
+
+  +element(bg)
+    width 50%
+    box-sizing border-box
+    background-repeat no-repeat
+    background-position left center
+    background-size contain
+    background-image url('../images/stat.png')
+    height 281px
+    +mq(0, 719px)
+      width 100%
+      height 195px
+      background-position center
+
+  +element(text)
+    width 50%
+    box-sizing border-box
+    padding 0 30px 0 0
+    text-align center
+    +mq(0, 719px)
+      width 100%
+      padding 0 0 20px 0
+
+
+
+
 .form-box
   position relative
   width 100%
@@ -1104,11 +1186,12 @@ input, textarea
     font-size 12px
     font-weight 400
     line-height 15px
-    & a
+    & span
       font-family 'Roboto', sans-serif
       font-size 12px
       color #ffffff
       text-decoration underline
+      cursor pointer
 
     +mq(0, 719px)
       padding 15px 12px
@@ -1365,3 +1448,256 @@ input, textarea
 
 .hpc
   display none
+
+.popupContainer
+  position fixed
+  width 100%
+  height 100%
+  z-index 99
+  display none
+  transition all 0.5s
+  &.show
+    display block
+    background rgba(36, 36, 36, 0.0)
+    transition all 0.5s
+    &.dark
+      transition-delay 1s
+      transition all 0.5s
+      background rgba(36, 36, 36, 0.5)
+
+.blocksPopup
+  position fixed
+  display none
+  z-index 100
+  width 100%
+  height 100%
+  max-width 1200px
+  left 0
+  right 0
+  margin 0 auto
+  &.show
+    display block
+  .Block
+    transition all 0.5s
+    max-width 1200px
+    margin 0 auto
+    position fixed
+    width 100%
+    height 100%
+    will-change transform
+    left 0
+    right 0
+    transform-origin 0% 50%
+    transform scaleY(0)
+    overflow-y scroll
+    top 0
+    padding 15px
+    box-sizing border-box
+    &.show
+      transition all 0.5s
+      transform scaleY(0)
+      +mq(0, 480px)
+        top 0
+        transform scaleY(0)
+        padding 15px
+        box-sizing border-box
+      &.open
+        transform scaleY(1)
+        +mq(0, 480px)
+          transform scaleY(1)
+          top 0
+          padding 15px
+          box-sizing border-box
+  .closePopup
+    position absolute
+    cursor pointer
+    width 26px
+    height 25px
+    opacity 1
+    will-change opacity, margin, transform
+    transition transform 0.4s 0s ease
+    margin 0
+    top 20px
+    right 20px
+    transform rotate(0)
+    &:hover
+      transition transform 0.4s 0s ease
+      transform rotate(90deg)
+    &.hide
+      opacity 0
+      transition all 0.4s ease
+      transform rotate(90deg)
+      margin 0
+      top 20px
+      right 20px
+      +mq(0, 480px)
+        width 21px
+        height 21px
+        margin 0
+    +mq(0, 480px)
+      width 21px
+      height 21px
+      margin 0
+      top 20px
+      right 20px
+      position absolute
+    svg
+      width 100%
+      height 100%
+      path
+        fill #252525
+        +mq(0, 480px)
+          fill #cd2430
+  .textBlock
+    position relative
+    background #ffffff
+    max-width 1200px
+    margin 0 auto
+    padding 0
+    top 0
+    transform translateY(0)
+    height 100%
+    .CPCblock
+      background #ffffff
+      padding 70px
+      opacity 1
+      transition opacity 0.3s 0.5s ease-in
+      +mq(0,719px)
+        padding 40px 20px
+      &.hide
+        transition opacity 0.3s 0.5s ease-in
+        opacity 0
+        position relative
+        height auto
+        max-height 80%
+        top 50%
+        transform translateY(-50%)
+        overflow-y auto
+        padding 0 30px
+        background-size 170%
+
+    .title
+      text-align center
+      padding 0
+      opacity 1
+      will-change opacity
+      &.hide
+        opacity 0
+      +mq(481px,849px)
+        padding 0
+      +mq(0, 480px)
+        padding 0
+        font-size 18px
+        line-height 22px
+        [lang="ru"] &
+          font-size 20px
+    .text
+      text-align center
+      margin 0
+      will-change opacity
+      strong
+        font-family BanderaProBold
+        font-weight 700
+      p + p
+        margin-top 10px
+      &.hide
+        opacity 0
+      +mq(481px,849px)
+        font-size 16px
+        line-height 22px
+        margin 0
+      +mq(0, 480px)
+        font-size 12px
+        line-height 17px
+        margin 0
+    .button
+      position relative
+      width 200px
+      height 50px
+      box-sizing border-box
+      margin 20px auto 0 auto
+      transform-origin 50% 0%
+      transform scaleX(1)
+      will-change transform
+      &.tap
+        .buttonHolder:before
+          transform scaleX(1) !important
+      &:active, &:hover
+        .buttonHolder:before
+          transform scaleX(1)
+          +mq(0, 770px)
+            transform scaleX(0)
+      +mq(0, 480px)
+        transform scale(0.85)
+        width 170px
+      .buttonHolder
+        transition transform 0.3s
+        width 100%
+        height 100%
+        background #cd2430
+        will-change transform
+        transform skew(-45deg) scaleX(0)
+        display inline-block
+        vertical-align middle
+        box-shadow 0 0 1px rgba(0, 0, 0, 0)
+        -webkit-backface-visibility hidden
+        backface-visibility hidden
+        -moz-osx-font-smoothing grayscale
+        position relative
+        z-index -1
+        top 0
+        bottom 0
+        left 0
+        right 0
+        transform-origin 50%
+        transition-timing-function ease-out
+        &.showBG
+          transform skew(-45deg) scaleX(1)
+          transition-delay 0.5s
+        &:before
+          content ""
+          position absolute
+          z-index -1
+          top 0
+          bottom 0
+          left 0
+          right 0
+          background #3d4574
+          transform scaleX(0)
+          transform-origin 50%
+          transition-property transform
+          transition-duration 0.3s
+          transition-timing-function ease-out
+      button
+        opacity 1
+        position absolute
+        width 100%
+        height 100%
+        border none
+        box-shadow none
+        border-radius 0
+        z-index 9
+        background none
+        font-family BanderaProBold
+        color #f6f3ef
+        font-size 18px
+        font-weight 700
+        text-align center
+        transition opacity 0.3 ease
+        [lang="ru"] &
+          font-size 16px
+          +mq(0, 480px)
+            font-size 14px
+        +mq(0, 480px)
+          font-size 14px
+  [data-anim-popup="0"]
+    transition opacity 0.4s 0.5s ease, margin 0.4s 0.5s ease, transform 0.4s 0.5s ease
+  [data-anim-popup="1"]
+    transition all 0.4s
+    transition-delay 0.5s
+  [data-anim-popup="2"]
+    transition all 0.4s
+    transition-delay 0.9s
+  [data-anim-popup="3"]
+    transition all 0.4s
+    transition-delay 0.5s
