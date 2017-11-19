@@ -1,12 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    var flagContainer = document.querySelector('[data-open-flag]');
-    var flagList = document.querySelector('[data-list]');
-    var useTel = document.querySelector('[data-use-tel]');
-    var flags = document.querySelectorAll('[data-click="flag"]');
-    var setFlag = document.querySelector('[data-set-flag]');
-    var setFlagContainer = document.querySelector('[data-set-flag-container]');
     var anchorButtons = document.querySelectorAll('[data-go-button]');
     var form = document.querySelector('[data-send-form]');
     var burger = document.querySelector('[data-menu-open]');
@@ -24,28 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    flagContainer.addEventListener('mouseover', function() {
-        flagList.classList.add('open');
-        setFlagContainer.classList.add('hide');
-    });
-
-    flagContainer.addEventListener('mouseout', function() {
-        setFlagContainer.classList.remove('hide');
-        flagList.classList.remove('open');
-    });
-
-    for (i = 0; i < flags.length; i++) {
-        flags[i].addEventListener('click', function() {
-            useTel.value = '+' + this.getAttribute('data-prefix');
-            var flagImage = this.querySelector('img');
-            setFlag.setAttribute('src', flagImage.getAttribute('src'));
-            setFlagContainer.classList.remove('hide');
-            flagList.classList.remove('open');
-        });
-    }
-
-    document.querySelector('[data-value="RU"]').click();
-
     for (i = 0; i < anchorButtons.length; i++) {
         anchorButtons[i].addEventListener('click', function() {
             var goTo = this.getAttribute('data-go-button');
@@ -61,68 +33,134 @@ document.addEventListener('DOMContentLoaded', function() {
         header.classList.toggle('active');
     });
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var formOk = true;
-        var inputs = this.querySelectorAll('[data-validate]');
-        var name = '';
-        var email = '';
-        var phone = '';
-        var text = '';
+    var $select = $('[data-b-select]');
 
-        for (i = 0; i < inputs.length; i++) {
-            inputs[i].parentNode.classList.remove('error');
-        }
+    $('[data-b-type]').each(function() {
+        var $this = $(this);
+        var flag = $this.find('img').attr('src');
+        var title = $this.find('[data-b-title]').text();
+        var $span = $('<span>').attr('style', 'background-image:url("/'+flag+'")');
 
-        for (i = 0; i < inputs.length; i++) {
-            var type = inputs[i].getAttribute('data-validate');
-            var value = inputs[i].value;
-            if (!validation(type, value)) {
-                formOk = false;
-                inputs[i].parentNode.classList.add('error');
-            }
-            switch (inputs[i].getAttribute('name')) {
-                case 'wb_input_0':
-                    name = inputs[i].value;
-                    break;
-                case 'wb_input_1':
-                    email = inputs[i].value;
-                    break;
-                case 'wb_input_2':
-                    phone = inputs[i].value;
-                    break;
-                case 'wb_input_3':
-                    text = inputs[i].value;
-                    break;
-            }
-        }
-        if (formOk) {
-            var http = new XMLHttpRequest();
-            var url = "/";
-            var params = new FormData(form);
-            http.open("POST", url, true);
-            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            http.onreadystatechange = function() {
-                if(http.readyState == 4 && http.status == 200) {
-                    alert('Сообщение отправлено');
-                    for (i = 0; i < inputs.length; i++) {
-                        inputs[i].value = null;
-                    }
-                    return true;
-                }
-            };
-            http.send(JSON.stringify(params));
+        var $div = $('<div class="top-b2__form-select-item">');
+        $div.attr('data-b-select-item', title).append($span).append('<span>' + title + '</span>');
+
+        $select.append($div);
+    });
+
+    $('[data-drop-down]').click(function() {
+        $('[data-b-form-block]').toggleClass('hidden');
+    });
+
+    var someTitles = document.querySelectorAll('[data-b-select]');
+    var banan = document.querySelector('[data-b-form-block]');
+
+    for (var i = 0; i < someTitles.length; i++) {
+        someTitles[i].addEventListener('mouseover', function() {
+            $select.addClass('opened');
+        });
+
+        someTitles[i].addEventListener('mouseout', function() {
+            $select.removeClass('opened');
+        });
+    }
+
+
+    $('[data-b-select]').on('click', '[data-b-select-item]', function() {
+        var $this = $(this);
+        $('[data-b-value]').val($this.attr('data-b-select-item'));
+        $select.prepend($this);
+        $select.scrollTop(0)
+    });
+    $('[data-b-select-item]').trigger('click');
+
+    $('[data-b-form]').each(function() {
+        var $this = $(this);
+        $this.submit(function(e) {
+            e.preventDefault();
+                    var http = new XMLHttpRequest();
+                    var url = "/";
+                    var params = new FormData($this[0]);
+                    http.open("POST", url, true);
+                    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    http.onreadystatechange = function() {
+                        if(http.readyState == 4 && http.status == 200) {
+                            return true;
+                        }
+                    };
+                    http.send(JSON.stringify(params));
             carrotquest.track('registered', {
-                '$name': name,
-                '$email': email,
-                '$phone': phone,
-                'text': text
+                '$name': $this.find('[name="name"]'),
+                '$email': $this.find('[name="email"]'),
+                'text': $this.find('[name="b-type"]')
             });
+            alert('Сообщение отправлено');
+        });
+    });
 
-        }
 
-        return false;
-    })
+    //
+    // form.addEventListener('submit', function(e) {
+    //     e.preventDefault();
+    //     var formOk = true;
+    //     var inputs = this.querySelectorAll('[data-validate]');
+    //     var name = '';
+    //     var email = '';
+    //     var phone = '';
+    //     var text = '';
+    //
+    //     for (i = 0; i < inputs.length; i++) {
+    //         inputs[i].parentNode.classList.remove('error');
+    //     }
+    //
+    //     for (i = 0; i < inputs.length; i++) {
+    //         var type = inputs[i].getAttribute('data-validate');
+    //         var value = inputs[i].value;
+    //         if (!validation(type, value)) {
+    //             formOk = false;
+    //             inputs[i].parentNode.classList.add('error');
+    //         }
+    //         switch (inputs[i].getAttribute('name')) {
+    //             case 'wb_input_0':
+    //                 name = inputs[i].value;
+    //                 break;
+    //             case 'wb_input_1':
+    //                 email = inputs[i].value;
+    //                 break;
+    //             case 'wb_input_2':
+    //                 phone = inputs[i].value;
+    //                 break;
+    //             case 'wb_input_3':
+    //                 text = inputs[i].value;
+    //                 break;
+    //         }
+    //     }
+    //     if (formOk) {
+    //         var http = new XMLHttpRequest();
+    //         var url = "/";
+    //         var params = new FormData(form);
+    //         http.open("POST", url, true);
+    //         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //         http.onreadystatechange = function() {
+    //             if(http.readyState == 4 && http.status == 200) {
+    //                 alert('Сообщение отправлено');
+    //                 for (i = 0; i < inputs.length; i++) {
+    //                     inputs[i].value = null;
+    //                 }
+    //                 return true;
+    //             }
+    //         };
+    //         http.send(JSON.stringify(params));
+    //         carrotquest.track('registered', {
+    //             '$name': name,
+    //             '$email': email,
+    //             '$phone': phone,
+    //             'text': text
+    //         });
+    //
+    //     }
+    //
+    //     return false;
+    // })
 
 });
 
