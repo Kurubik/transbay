@@ -518,12 +518,32 @@ input, textarea
   +element(form-block)
     position relative
     display none
-    width 300px
+    width 265px
     height auto
     box-sizing border-box
-    margin-top 40px
+    margin-top 15px
+    will-change transform, bottom, position, right, opacity
+    transform translateY(0)
+    opacity 1
+    z-index 5
+    transition transform 0.7s ease, bottom 1.5s ease, right 0.7s ease, opacity 0.3s ease
+
+    &.invisible
+      opacity 0
+
     &.not-mobile
       display block
+      &.mobile
+        position fixed
+        z-index 10
+        right 30px
+        bottom 2000px
+
+        &.drop-down
+          bottom 0
+
+        &.hidden
+          transform translateY(93%)
 
     +mq(0, 719px)
       margin 0
@@ -533,9 +553,7 @@ input, textarea
       width 265px
       bottom 0
       right 0
-      transition 0.7s ease
-      will-change transform
-      transform translateY(0)
+      transition transform 0.7s ease
 
       &.hidden
         transform translateY(93%)
@@ -558,10 +576,12 @@ input, textarea
     color transparent
     font-weight 700
     text-transform uppercase
-    transition color 0.3s ease
-    will-change color
+    transition color 0.3s ease, transform 0.3s ease
+    will-change color, transform
     .hidden &
       color #000000
+    .top-hide &
+      transform translateY(100%)
     &:after
       content ""
       position absolute
@@ -611,6 +631,9 @@ input, textarea
       background-color #ffffff
       z-index 5
       +mq(0, 719px)
+        height 100px
+
+      .drop-down &
         height 100px
 
   +element(form-select-item)

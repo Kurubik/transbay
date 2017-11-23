@@ -97,7 +97,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    $.fn.scrollEnd = function(callback, timeout) {
+        $(this).scroll(function(){
+            var $this = $(this);
+            if ($this.data('scrollTimeout')) {
+                clearTimeout($this.data('scrollTimeout'));
+            }
+            $this.data('scrollTimeout', setTimeout(callback,timeout));
+        });
+    };
 
+    $(window).scrollEnd(function(){
+        animationScroll();
+    }, 50);
+
+    function animationScroll() {
+        var $mainForm = $('[data-b-form-block="mobile"]');
+        var $mainFormMain = $('[data-b-form-block="main"]');
+        if (parseInt($('[data-form-transform]').offset().top) - 100 <= $(window).scrollTop()) {
+            $mainForm.addClass('not-mobile');
+            setTimeout(function() {
+                $mainForm.addClass('drop-down');
+                $mainFormMain.addClass('invisible');
+            }, 1000);
+        } else {
+            $mainForm.removeClass('drop-down');
+            setTimeout(function() {
+                $mainForm.removeClass('not-mobile');
+                $mainFormMain.removeClass('invisible');
+            }, 1000);
+        }
+    }
     //
     // form.addEventListener('submit', function(e) {
     //     e.preventDefault();
