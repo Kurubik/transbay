@@ -108,24 +108,26 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     $(window).scrollEnd(function(){
-        animationScroll();
+        if ($(window).width() > 719) {
+            animationScroll();
+        }
     }, 50);
 
     function animationScroll() {
         var $mainForm = $('[data-b-form-block="mobile"]');
         var $mainFormMain = $('[data-b-form-block="main"]');
-        if (parseInt($('[data-form-transform]').offset().top) - 100 <= $(window).scrollTop()) {
+        if (parseInt($('[data-form-transform]').offset().top) - 50 < $(window).scrollTop()) {
             $mainForm.addClass('not-mobile');
             setTimeout(function() {
                 $mainForm.addClass('drop-down');
                 $mainFormMain.addClass('invisible');
-            }, 1000);
+        }, 1600);
         } else {
             $mainForm.removeClass('drop-down');
             setTimeout(function() {
                 $mainForm.removeClass('not-mobile');
                 $mainFormMain.removeClass('invisible');
-            }, 1000);
+            }, 1600);
         }
     }
     //
