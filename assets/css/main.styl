@@ -1305,6 +1305,34 @@ input, textarea
       text-transform none
       +mq(0, 1220px)
         display none
+.price
+  +element(button)
+    position relative
+    display block
+    width 150px
+    text-align center
+    padding 0
+    border none
+    margin 30px auto 10px auto
+    color #060d1d
+    font-family 'Roboto', sans-serif
+    font-size 15px
+    font-weight 500
+    line-height 44px
+    text-transform uppercase
+    letter-spacing 0.42px
+    height 44px
+    box-shadow 0 4px 0 #c58617
+    background-color #ffcc00
+    cursor pointer
+    text-decoration none
+    transition background-color 0.3s ease, box-shadow 0.3s ease
+    will-change background-color, box-shadow
+
+    &:hover
+      background-color #ffec1c
+      box-shadow 0 4px 0 #e29e19
+
 
 .flag-title
   position relative
@@ -1543,7 +1571,7 @@ input, textarea
 
   +modifier(triangle)
     height 400px
-    top 300px
+    top 370px
 
     +mq(0, 1220px)
       height 525px

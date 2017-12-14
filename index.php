@@ -1,4 +1,4 @@
-﻿﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -195,7 +195,7 @@
 </section>
 
 <div class="container" data-go-place="5">
-    <div class="top-b2__form-block mobile hidden" data-b-form-block="mobile">
+    <div class="top-b2__form-block mobile hidden" data-b-form-block>
         <div data-drop-down class="top-b2__form-top">с европейским IBAN номером</div>
         <div class="top-b2__form">
             <div class="top-b2__form-title">
@@ -239,11 +239,12 @@
                                 <a href="tel:+37122457631" class="phone-item">(+371) <strong>22-45-76-31</strong> <span class="icon-phone tele-app"></span> <span class="icon-phone icon-2-phone wsapp-app"></span></a>
                             </div>
                         </div>
-                        <div class="top-b2__video"></div>
+                        <div class="top-b2__video">
+                            <iframe src="https://www.youtube.com/embed/cLtixC-LKWY" frameborder="0" allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
-                <div class="top-b2__form-block not-mobile top-hide" data-b-form-block="main">
-                    <div data-drop-down class="top-b2__form-top">Бесплатный расчетный счет</div>
+                <div class="top-b2__form-block not-mobile" data-b-form-block>
                     <div class="top-b2__form">
                         <div class="top-b2__form-title">
                             Оставьте заявку и получите бесплатно расчетный счет
@@ -268,7 +269,7 @@
         </div>
     </section>
 
-    <section class="section section--vid" data-form-transform>
+    <section class="section section--vid">
         <div class="wrapper">
             <div class="vid-b">
                 <div class="section__title">
@@ -981,7 +982,7 @@
                     В зависимости от выбранной страны и <br>ставящихся задач стоимость услуг составит <br>
                     <strong>от 1200 до 3000 EUR.</strong>
                 </div>
-                <a href="http://transbay.eu/images/Cenu%20lapa%201.11.2017.xlsx" class="price__button">прайс-лист</a>
+                <div class="price__button">прайс-лист</div>
                 <div class="new-level-palka new-level-palka--triangle"></div>
                 <div class="new-level__container new-level__container--p35 not-mobile">
                     <div class="new-level__bl0ck new-level__bl0ck--title">
